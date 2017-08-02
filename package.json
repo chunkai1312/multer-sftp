@@ -1,6 +1,6 @@
 {
   "name": "multer-sftp",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "SFTP storage engine for multer",
   "main": "index.js",
   "scripts": {
@@ -12,7 +12,14 @@
     "lint": "eslint lib test",
     "prepublish": "npm run build"
   },
-  "repository": "https://github.com/chunkai1312/multer-sftp.git",
+  "files": [
+    "index.js",
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/chunkai1312/multer-sftp.git"
+  },
   "keywords": [
     "multer-sftp",
     "express",

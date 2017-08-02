@@ -1,11 +1,8 @@
 {
   "name": "multer-sftp",
-  "version": "0.1.0",
+  "version": "0.0.0",
   "description": "SFTP storage engine for multer",
   "main": "index.js",
-  "repository": "https://github.com/chunkai1312/multer-sftp.git",
-  "author": "Chun-Kai Wang <chunkai1312@gmail.com>",
-  "license": "MIT",
   "scripts": {
     "prebuild": "rimraf lib",
     "build": "babel src -d lib",
@@ -15,6 +12,20 @@
     "lint": "eslint lib test",
     "prepublish": "npm run build"
   },
+  "repository": "https://github.com/chunkai1312/multer-sftp.git",
+  "keywords": [
+    "multer-sftp",
+    "express",
+    "multer",
+    "sftp",
+    "ssh"
+  ],
+  "author": "Chun-Kai Wang <chunkai1312@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/chunkai1312/multer-sftp/issues"
+  },
+  "homepage": "https://github.com/chunkai1312/multer-sftp#readme",
   "dependencies": {
     "ssh2-sftp-client": "^1.1.0"
   },

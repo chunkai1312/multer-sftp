@@ -1,8 +1,6 @@
 # multer-sftp
 
 [![NPM version][npm-image]][npm-url]
-[![Build Status][travis-image]][travis-url]
-[![Coverage Status][codecov-image]][codecov-url]
 
 > SFTP storage engine for multer
 
@@ -42,7 +40,3 @@ MIT © [Chun-Kai Wang](https://github.com/chunkai1312)
 
 [npm-image]: https://img.shields.io/npm/v/multer-sftp.svg
 [npm-url]: https://npmjs.org/package/multer-sftp
-[travis-image]: https://img.shields.io/travis/chunkai1312/multer-sftp.svg
-[travis-url]: https://travis-ci.org/chunkai1312/multer-sftp
-[codecov-image]: https://img.shields.io/codecov/c/github/chunkai1312/multer-sftp.svg
-[codecov-url]: https://codecov.io/gh/chunkai1312/multer-sftp

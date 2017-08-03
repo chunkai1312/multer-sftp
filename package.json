@@ -1,6 +1,6 @@
 {
   "name": "multer-sftp",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "SFTP storage engine for multer",
   "main": "index.js",
   "scripts": {
@@ -9,7 +9,7 @@
     "test": "jest",
     "test:watch": "npm test -- --watch",
     "test:coverage": "npm test -- --coverage",
-    "lint": "eslint lib test",
+    "lint": "eslint src test",
     "prepublish": "npm run build"
   },
   "files": [

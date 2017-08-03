@@ -1,15 +1,10 @@
-import sftpStorage, { SFTPStorage } from '../src/multer-sftp'
+import SFTPStorage from '../src/SFTPStorage'
 
-describe('Multer SFTP Storage', () => {
-  describe('#sftpStorage()', () => {
-    it('should throw error if opts not an object', () => {
-      const opts = false
-      expect(() => sftpStorage(opts)).toThrow()
-    })
-
-    it('should throw error if opts.sftp not an object', () => {
+describe('SFTPStorage', () => {
+  describe('#constructor()', () => {
+    it('should throw error if opts.sftp is not an object', () => {
       const opts = { sftp: false }
-      expect(() => sftpStorage(opts)).toThrow()
+      expect(() => new SFTPStorage(opts)).toThrow('Expected opts.sftp to be object')
     })
 
     it('should throw error if opts.destination is missing', () => {
@@ -21,17 +16,17 @@ describe('Multer SFTP Storage', () => {
           password: 'password'
         }
       }
-      expect(() => sftpStorage(opts)).toThrow()
+      expect(() => new SFTPStorage(opts)).toThrow('opts.destination is required')
     })
 
-    it('should throw error if opts.destination not a function or a string', () => {
+    it('should throw error if opts.destination is not a function or string', () => {
       const opts = { sftp: {}, destination: false }
-      expect(() => sftpStorage(opts)).toThrow()
+      expect(() => new SFTPStorage(opts)).toThrow('Expected opts.destination to be function or string')
     })
 
-    it('should throw error if opts.filename not a function', () => {
+    it('should throw error if opts.filename is not a function', () => {
       const opts = { sftp: {}, destination: '/path/to/uploads', filename: false }
-      expect(() => sftpStorage(opts)).toThrow()
+      expect(() => new SFTPStorage(opts)).toThrow('Expected opts.filename to be undefined or function')
     })
 
     it('should create a SFTPStorage instance', () => {
@@ -44,10 +39,10 @@ describe('Multer SFTP Storage', () => {
         },
         destination: (req, file, cb) => cb(null, '/path/to/uploads')
       }
-      expect(sftpStorage(opts)).toBeInstanceOf(SFTPStorage)
+      expect(new SFTPStorage(opts)).toBeInstanceOf(SFTPStorage)
     })
 
-    it('should create a SFTPStorage instance with string of destination', () => {
+    it('should create a SFTPStorage instance with opts.destination using string', () => {
       const opts = {
         sftp: {
           host: '127.0.0.1',
@@ -57,10 +52,10 @@ describe('Multer SFTP Storage', () => {
         },
         destination: '/path/to/uploads'
       }
-      expect(sftpStorage(opts)).toBeInstanceOf(SFTPStorage)
+      expect(new SFTPStorage(opts)).toBeInstanceOf(SFTPStorage)
     })
 
-    it('should create a SFTPStorage instance with filename', () => {
+    it('should create a SFTPStorage instance with opts.filename', () => {
       const opts = {
         sftp: {
           host: '127.0.0.1',
@@ -71,7 +66,7 @@ describe('Multer SFTP Storage', () => {
         destination: (req, file, cb) => cb(null, '/path/to/uploads'),
         filename: (req, file, cb) => cb(null, 'filename.ext')
       }
-      expect(sftpStorage(opts)).toBeInstanceOf(SFTPStorage)
+      expect(new SFTPStorage(opts)).toBeInstanceOf(SFTPStorage)
     })
   })
 })

@@ -54,7 +54,7 @@ The module returns a function that can be invoked with options to create a Multe
 }
 ```
 
-* `sftp`: **Required**, `sftp` is a settings object for sftp client connection. Please see [ssh2](https://github.com/mscdex/ssh2#user-content-client-methods) documentation for details.
+* `sftp`: **Required**. `sftp` is a settings object for sftp client connection. Please see [ssh2](https://github.com/mscdex/ssh2#user-content-client-methods) documentation for details.
 * `destination`: **Required**. `destination` is used to determine within which folder the uploaded files should be stored. This can also be given as a `string` (e.g. `'/tmp/uploads'`).
 * `filename`: **Optional**. `filename` is used to determine what the file should be named inside the folder. If no `filename` is given, each file will be given a random name that doesn't include any file extension.
 

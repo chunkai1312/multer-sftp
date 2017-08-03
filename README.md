@@ -20,7 +20,7 @@ var storage = sftpStorage({
   sftp: {
     host: '127.0.0.1',
     port: 22,
-    username: 'username'
+    username: 'username',
     password: 'password'
   },
   destination: function (req, file, cb) {

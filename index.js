@@ -1,1 +1,1 @@
-module.exports = require('./lib/multer-sftp')
+module.exports = require('./lib')

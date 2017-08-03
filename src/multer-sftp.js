@@ -8,13 +8,40 @@ function getFilename (req, file, cb) {
   })
 }
 
-function SFTPStorage (opts) {
+export function SFTPStorage (opts) {
+  if (!opts) {
+    throw new Error('`opts` is required')
+  }
+
+  if (typeof opts !== 'object') {
+    throw new Error('Expected `opts` to be an object')
+  }
+
+  if (!opts.sftp) {
+    throw new Error('`opts.sftp` is required')
+  }
+
+  if (typeof opts.sftp !== 'object') {
+    throw new Error('Expected `opts.sftp` to be an object')
+  }
+
+  if (!opts.destination) {
+    throw new Error('`opts.destination` is required')
+  }
+
+  if (typeof opts.destination !== 'function' && typeof opts.destination !== 'string') {
+    throw new Error('Expected `opts.destination` to be a function or string')
+  }
+
+  if (typeof opts.filename !== 'undefined' && typeof opts.filename !== 'function') {
+    throw new Error('Expected `opts.filename` to be a function')
+  }
+
   this.opts = opts
   this.sftp = new Client()
 
   this.getFilename = (opts.filename || getFilename)
 
-  if (!opts.destination) throw new Error('missing destination')
   if (typeof opts.destination === 'string') {
     this.getDestination = function ($0, $1, cb) { cb(null, opts.destination) }
   } else {
@@ -56,6 +83,6 @@ SFTPStorage.prototype._removeFile = function _removeFile (req, file, cb) {
     .catch((err) => cb(err))
 }
 
-module.exports = function (opts) {
+export default function (opts) {
   return new SFTPStorage(opts)
 }

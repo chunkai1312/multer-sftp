@@ -9,7 +9,7 @@
 ## Install
 
 ```
-$ npm install --save multer-sftp
+$ npm install --save multer-sftp ssh2-sftp-client
 ```
 
 ## Usage

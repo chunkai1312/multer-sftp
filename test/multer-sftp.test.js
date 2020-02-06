@@ -28,7 +28,7 @@ describe('SFTP Storage', function () {
   it('should process parser/form-data POST request', function (done) {
     var mockClient = new Client()
     var storage = sftpStorage({
-      sftpClient: mockClient,
+      client: mockClient,
       sftp: sftp,
       destination: function (req, file, cb) {
         cb(null, '/path/to/upload')
@@ -59,7 +59,7 @@ describe('SFTP Storage', function () {
   it('should process empty fields and an empty file', function (done) {
     var mockClient = new Client()
     var storage = sftpStorage({
-      sftpClient: mockClient,
+      client: mockClient,
       sftp: sftp,
       destination: '/path/to/upload'
     })
@@ -99,7 +99,7 @@ describe('SFTP Storage', function () {
   it('should process multiple files', function (done) {
     var mockClient = new Client()
     var storage = sftpStorage({
-      sftpClient: mockClient,
+      client: mockClient,
       sftp: sftp,
       destination: '/path/to/upload'
     })
@@ -156,7 +156,7 @@ describe('SFTP Storage', function () {
   it('should remove uploaded files on error', function (done) {
     var mockClient = new Client()
     var storage = sftpStorage({
-      sftpClient: mockClient,
+      client: mockClient,
       sftp: sftp,
       destination: '/path/to/upload'
     })
@@ -185,7 +185,7 @@ describe('SFTP Storage', function () {
     }
 
     var storage = sftpStorage({
-      sftpClient: mockClient,
+      client: mockClient,
       sftp: sftp,
       destination: '/path/to/upload'
     })

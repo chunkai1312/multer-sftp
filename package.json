@@ -1,6 +1,6 @@
 {
   "name": "multer-sftp",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "SFTP storage engine for multer",
   "main": "lib/index.js",
   "types": "index.d.ts",
